@@ -16,21 +16,20 @@ session.setAttribute("category_type",category_type);
 try {
 	Class.forName("com.mysql.jdbc.Driver");
 
-	
 	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant?autoReconnect=true&useSSL=false","root","Rschakar21");
 	Statement stm= con.createStatement();
 	
 	
-	// inserting value 
-	//stm.executeUpdate("insert into form_null_layout values(null,'"+employ_id+"','"+employ_password+"')");
-	String query = "SELECT * FROM menu where category='"+category_type+"' ";
+	
+	String query = "SELECT * FROM employee_data ";
 	   
-		session.setAttribute( "category",category_type);
+	
+	
 		
 	ResultSet rs = stm.executeQuery(query);
 	%>
-	
-	Name                    price                  
+	employee-id  /password   /Admin access
+	               
 	<br></br>
 	<%
 	
@@ -38,19 +37,19 @@ try {
 		{  
 			
 			
-		    String item_name = rs.getString("item_name");
-		    int item_price = rs.getInt("item_price");
-		    System.out.print(item_name+"  ");
-		    int item_no = rs.getInt("item_no");
-		    System.out.println(item_price);
-		    System.out.println(item_no);
-			session.setAttribute( "item_no",item_no);
-
+		    String employee_id1 = rs.getString("employee_id");
+		    String admin_access1 = rs.getString("admin_access");
+		    int sno = rs.getInt("sno");
+		    String password = rs.getString("password");
+		    String sn1 ="sno"+employee_id1;
+			session.setAttribute( "sn1",sno);
+            System.out.println(sno);
 		    %>
-		    <form action="update_menu" method="post">
-		    <input type="text" name="item_name" value=<%=item_name %>>
-		     <input type="text" name="item_price" value=<%=Integer.toString(item_price) %>>
-		     
+		    <form action="update_employee2" method="post">
+		    <input type="text" name="sno" value=<%=sno%> readonly>
+		    <input type="text" name="employee_id1" value=<%=employee_id1%>>
+		      <input type="text" name="password" value=<%=password %>>
+		      <input type="text" name="admin_access1" value=<%=admin_access1%>>
 		      <input type ="submit" value="update" name="update">
 		      <input type ="submit" value="remove" name="remove">
 		      <br></br>
@@ -65,9 +64,10 @@ try {
 	}
 %>
 <br>
-<form action="insert_menu" method="post">
-<input type="text" name="item_name" value="item_name" ></input>
-<input type="text" name="item_price" value="item_price" ></input>
+<form action="insert_employee2" method="post">
+<input type="text" name="employye_id" value="employye_id" ></input>
+<input type="text" name="password" value="password" ></input>
+<input type="text" name="admin_access" value="admin_access" ></input>
 <input type="submit" value="insert" ></input>
 </form>
 </body>

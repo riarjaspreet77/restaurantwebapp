@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
+
 
 /**
  * Servlet implementation class insertmenu
  */
-
+@WebServlet("/insertmenu")
 public class insert_menu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -50,7 +50,7 @@ public class insert_menu extends HttpServlet {
 		String n=(String) session.getAttribute("category_type");
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant","root","root");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant?autoReconnect=true&useSSL=false","root","Rschakar21");
 			Statement stm= con.createStatement();
 			// updating value value 
 			//stm.executeUpdate("update employee_data set password='"+password+"',admin_access='"+ac+"'  where employee_id='"+e_id+"'");

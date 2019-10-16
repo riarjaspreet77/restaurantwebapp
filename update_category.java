@@ -13,16 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class update_menu
+ * Servlet implementation class update_category
  */
-@WebServlet("/update_menu")
-public class update_menu extends HttpServlet {
+@WebServlet("/update_category")
+public class update_category extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public update_menu() {
+    public update_category() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,19 +40,17 @@ public class update_menu extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session=request.getSession();
-		System.out.println(session.getAttribute("category_type"));
-		String category_table = (String) session.getAttribute("category_type");
-		String item_name_table= request.getParameter("item_name");
-		String item_price_table= request.getParameter("item_price");
+		
+	
+		String category_name= request.getParameter("category_name");
+		
     	/*String item_no_price= request.getParameter("item_no");*/
 		
     	
-    	HttpSession session1=request.getSession();
-		int item_no=(int)session1.getAttribute("item_no");
-		String update_button= request.getParameter("update");
+    
+		String add_button= request.getParameter("add");
 		String remove_button= request.getParameter("remove");
-		System.out.println(update_button+" update ");
+		System.out.println(add_button+" add ");
 		System.out.println(remove_button+" remove ");
 		if(remove_button==null)
 		{
@@ -61,33 +59,33 @@ public class update_menu extends HttpServlet {
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant?autoReconnect=true&useSSL=false","root","Rschakar21");
 			Statement stm= con.createStatement();
 			// updating value value 
-			stm.executeUpdate("update menu set item_name='"+item_name_table+"',item_price='"+item_price_table+"'  where category='"+category_table+"' and item_no='"+item_no+"'");
+			//stm.executeUpdate("update menu set item_name='"+item_name_table+"',item_price='"+item_price_table+"'  where category='"+category_table+"' and item_no='"+item_no+"'");
 			//inserting value
-			//stm.executeUpdate("insert into employee_data values(null,'"+e_id+"','"+password+"','"+ac+"')");
+			stm.executeUpdate("insert into category values(null,'"+category_name+"')");
 			//String query = "SELECT * FROM employee_data where employee_id='"+employ_id_search+"' ";
 
-			response.sendRedirect("searchmenu.jsp");
+			response.sendRedirect("menu_edit2.jsp");
 			}
 			catch(Exception e)
 			{ 
 				System.out.println(e);
 			}
 		}
-		else if (update_button==null)
+		else if (add_button==null)
 		{
 			try {
-				System.out.println(category_table+"category table");
+				
 				
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant?autoReconnect=true&useSSL=false","root","Rschakar21");
 				Statement stm= con.createStatement();
 				// updating value value 
-				stm.executeUpdate("delete from menu where item_no='"+item_no+"'");
+				stm.executeUpdate("delete from category where category_type='"+category_name+"'");
 				//inserting value
 				//stm.executeUpdate("insert into employee_data values(null,'"+e_id+"','"+password+"','"+ac+"')");
 				//String query = "SELECT * FROM employee_data where employee_id='"+employ_id_search+"' ";
 
-				response.sendRedirect("searchmenu.jsp");
+				response.sendRedirect("menu_edit2.jsp");
 				}
 				catch(Exception e)
 				{ 

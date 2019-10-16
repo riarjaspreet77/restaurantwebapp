@@ -11,23 +11,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-
-
 
 /**
- * Servlet implementation class login
+ * Servlet implementation class employ_cash
  */
-@WebServlet("/login")
-
-public class login extends HttpServlet {
+@WebServlet("/employ_cash")
+public class employ_cash extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public login() {
+    public employ_cash() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,47 +41,40 @@ public class login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String employ_id=request.getParameter("employ_id");
-		HttpSession session=request.getSession();
-		session.setAttribute( "employ_id",employ_id);
-		String password=request.getParameter("password");
-		/*System.out.println(employ_id);
-		System.out.println(password);*/
+		
+		System.out.println(employ_id);
+		
+		int grand_total=0;
+		int flag_search_date=0;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant?autoReconnect=true&useSSL=false","root","Rschakar21");
 			Statement stm= con.createStatement();
 			// inserting value 
 			//stm.executeUpdate("insert into form_null_layout values(null,'"+employ_id+"','"+employ_password+"')");
-			String query = "SELECT * FROM employee_data where employee_id='"+employ_id+"' and password='"+password+"' ";
+			String query = "SELECT * FROM master_table where employ_id='"+employ_id+"'";
 
 			ResultSet rs = stm.executeQuery(query);
-			if (rs.next())
-				{   if(rs.getInt("admin_access")==0)
-						{
-							response.sendRedirect("table_master.jsp");
-					
-						}
-					else
-						{
-						response.sendRedirect("admin.jsp");
-						}
-					
-					
-	      
+			  
+				while(rs.next())
+				{flag_search_date=1;
+					int total = rs.getInt("total");
+					grand_total=grand_total+total;
+				    
+				    System.out.println(grand_total);
+				  
 				}
-			else 
+				System.out.println(grand_total +"grands");
+				
+			if(flag_search_date==0) 
 				{
-				
-				session.setAttribute( "error_msg","username/Password invalid");
-				
-				response.sendRedirect("login_page.jsp");
+				System.out.print("nosdhgsfhfsh");
 				}
 			}
 			catch(Exception e)
 			{ 
 				System.out.println(e);
 			}
-		
 	}
 
 }

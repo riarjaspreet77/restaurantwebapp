@@ -21,7 +21,7 @@ try {
 	Class.forName("com.mysql.jdbc.Driver");
 
 	
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant","root","root");
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant?autoReconnect=true&useSSL=false","root","Rschakar21");
 	Statement stm= con.createStatement();
 	
 	

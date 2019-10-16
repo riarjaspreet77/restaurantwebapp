@@ -7,8 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<input type="button" onclick="location.href='employ_edit.jsp';" value="edit employ" />
-<input type="button" onclick="location.href='menu_edit2.jsp';" value="edit menu" />
-<input type="button" onclick="location.href='cash_analysis.jsp';" value="cash analysis" />
+<form action="date" method="post" >
+<input type="date"  name="from_date"/>
+<input type="date"  name="to_date"/>
+<input type="submit" value="submit">
+</form>
+<form action="employ_cash" method="post" >
+<input type="text"  name="employ_id"/>
+<input type="submit" value="submit">
+</form>
 </body>
 </html>

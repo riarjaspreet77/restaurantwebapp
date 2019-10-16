@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -13,18 +14,12 @@ String restaurant_name1="laziz";
 /*  add sessio  */
 System.out.println(restaurant_name1);
 try {
-	Class.forName("com.mysql.jdbc.Driver");
-
-	
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant","root","root");
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant?autoReconnect=true&useSSL=false","root","Rschakar21");
+			;
 	Statement stm= con.createStatement();
 	
-	
-	// inserting value 
-	//stm.executeUpdate("insert into form_null_layout values(null,'"+employ_id+"','"+employ_password+"')");
 	String query = "SELECT * FROM restaurant_data where restaurant_name='"+restaurant_name1+"' ";
-	   
-	/* session.setAttribute( "category",category); */
 		
 	ResultSet rs = stm.executeQuery(query);
 	%>

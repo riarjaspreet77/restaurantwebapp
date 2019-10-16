@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class search_menu
  */
-
+@WebServlet("/search_menu")
 public class search_menu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -45,7 +45,7 @@ public class search_menu extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant","root","root");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant?autoReconnect=true&useSSL=false","root","Rschakar21");
 			Statement stm= con.createStatement();
 			// inserting value 
 			//stm.executeUpdate("insert into form_null_layout values(null,'"+employ_id+"','"+employ_password+"')");

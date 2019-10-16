@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class update_employ
  */
-
+@WebServlet("/update_employ")
 public class update_employ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -76,7 +76,7 @@ public class update_employ extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant","root","root");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant?autoReconnect=true&useSSL=false","root","Rschakar21");
 			Statement stm= con.createStatement();
 			// updating value value 
 			stm.executeUpdate("update employee_data set password='"+password+"',admin_access='"+ac+"'  where employee_id='"+e_id+"'");
@@ -98,7 +98,7 @@ public class update_employ extends HttpServlet {
 			
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant","root","root");
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant?autoReconnect=true&useSSL=false","root","Rschakar21");
 				Statement stm= con.createStatement();
 				// updating value value 
 				//stm.executeUpdate("update employee_data set password='"+password+"',admin_access='"+ac+"'  where employee_id='"+e_id+"'");

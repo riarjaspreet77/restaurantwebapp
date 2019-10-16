@@ -13,7 +13,7 @@ try {
 	Class.forName("com.mysql.jdbc.Driver");
 
 	
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant","root","root");
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant?autoReconnect=true&useSSL=false","root","Rschakar21");
 	Statement stm= con.createStatement();
 	
 	
@@ -49,5 +49,13 @@ try {
 		System.out.println(e);
 	}
 %>
+<br>
+<form action="update_category" method="post">
+		    <input type="text" name="category_name">
+		     
+		      <input type ="submit" value="add" name="add">
+		      <input type ="submit" value="remove" name="remove">
+		      <br></br>
+		    </form>
 </body>
 </html>

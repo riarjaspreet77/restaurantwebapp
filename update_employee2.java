@@ -13,16 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class update_menu
+ * Servlet implementation class update_employee2
  */
-@WebServlet("/update_menu")
-public class update_menu extends HttpServlet {
+@WebServlet("/update_employee2")
+public class update_employee2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public update_menu() {
+    public update_employee2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,20 +40,15 @@ public class update_menu extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session=request.getSession();
-		System.out.println(session.getAttribute("category_type"));
-		String category_table = (String) session.getAttribute("category_type");
-		String item_name_table= request.getParameter("item_name");
-		String item_price_table= request.getParameter("item_price");
-    	/*String item_no_price= request.getParameter("item_no");*/
+		String employe_id1= request.getParameter("employee_id1");
+		String sno= request.getParameter("sno");
+		String admin_access= request.getParameter("admin_access1");
+		String password= request.getParameter("password");
 		
-    	
-    	HttpSession session1=request.getSession();
-		int item_no=(int)session1.getAttribute("item_no");
+		
 		String update_button= request.getParameter("update");
 		String remove_button= request.getParameter("remove");
-		System.out.println(update_button+" update ");
-		System.out.println(remove_button+" remove ");
+		System.out.print(employe_id1+" employ id of button");
 		if(remove_button==null)
 		{
 		try {
@@ -61,12 +56,12 @@ public class update_menu extends HttpServlet {
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant?autoReconnect=true&useSSL=false","root","Rschakar21");
 			Statement stm= con.createStatement();
 			// updating value value 
-			stm.executeUpdate("update menu set item_name='"+item_name_table+"',item_price='"+item_price_table+"'  where category='"+category_table+"' and item_no='"+item_no+"'");
+			stm.executeUpdate("update employee_data set employee_id='"+employe_id1+"',admin_access='"+admin_access+"',password='"+password+"'  where   sno='"+sno+"'");
 			//inserting value
 			//stm.executeUpdate("insert into employee_data values(null,'"+e_id+"','"+password+"','"+ac+"')");
 			//String query = "SELECT * FROM employee_data where employee_id='"+employ_id_search+"' ";
 
-			response.sendRedirect("searchmenu.jsp");
+			response.sendRedirect("employe_edit2.jsp");
 			}
 			catch(Exception e)
 			{ 
@@ -76,18 +71,18 @@ public class update_menu extends HttpServlet {
 		else if (update_button==null)
 		{
 			try {
-				System.out.println(category_table+"category table");
+				
 				
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project_restaurant?autoReconnect=true&useSSL=false","root","Rschakar21");
 				Statement stm= con.createStatement();
 				// updating value value 
-				stm.executeUpdate("delete from menu where item_no='"+item_no+"'");
+				stm.executeUpdate("delete from employee_data where sno='"+sno+"'");
 				//inserting value
 				//stm.executeUpdate("insert into employee_data values(null,'"+e_id+"','"+password+"','"+ac+"')");
 				//String query = "SELECT * FROM employee_data where employee_id='"+employ_id_search+"' ";
 
-				response.sendRedirect("searchmenu.jsp");
+				response.sendRedirect("employe_edit2.jsp");
 				}
 				catch(Exception e)
 				{ 
