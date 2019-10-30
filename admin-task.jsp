@@ -25,6 +25,7 @@ border-radius: 15px;
 }
 #grid3-1{background-color:black;	
 height:150px;
+color:white;
 border:2px solid;
 border-color: white;
 border-radius: 15px;
@@ -63,10 +64,10 @@ height:50px;
    
         <div class="row-fluid">
             <div class="col-sm-3" id="grid3-1">
- Fluid 1</div>
+ <h3>Daily Sales</h3><h4><%@ include file="totalsale.jsp" %></h4></div>
             <div class="col-sm-3" id="grid3-2">Fluid 2</div>
-            <div class="col-sm-3" id="grid3-3">Fluid 3</div>
-            <div class="col-sm-3" id="grid3-4">Fluid 4</div>
+            <div class="col-sm-4" id="grid3-3">Fluid 3</div>
+        
         </div>
         <div class="row-fluid">
             <div class="col-sm-12">
