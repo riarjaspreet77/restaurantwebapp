@@ -66,7 +66,7 @@ public class update_menu extends HttpServlet {
 			//stm.executeUpdate("insert into employee_data values(null,'"+e_id+"','"+password+"','"+ac+"')");
 			//String query = "SELECT * FROM employee_data where employee_id='"+employ_id_search+"' ";
 
-			response.sendRedirect("searchmenu.jsp");
+			response.sendRedirect("editbycat-admin.jsp");
 			}
 			catch(Exception e)
 			{ 
@@ -87,13 +87,13 @@ public class update_menu extends HttpServlet {
 				//stm.executeUpdate("insert into employee_data values(null,'"+e_id+"','"+password+"','"+ac+"')");
 				//String query = "SELECT * FROM employee_data where employee_id='"+employ_id_search+"' ";
 
-				response.sendRedirect("searchmenu.jsp");
+				response.sendRedirect("editbycat-admin.jsp");
 				}
 				catch(Exception e)
 				{ 
 					System.out.println(e);
 				}
-		}
+		}response.sendRedirect("editbycat-admin.jsp");
 	}
 
 }

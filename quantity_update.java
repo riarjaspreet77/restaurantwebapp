@@ -239,7 +239,7 @@ public class quantity_update extends HttpServlet {
 		
 		
 		
-		response.sendRedirect("cashier_menu_master.jsp");
+		response.sendRedirect("bootstrap-cashier.jsp");
 		
 		
 	}

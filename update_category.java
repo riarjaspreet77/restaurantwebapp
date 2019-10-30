@@ -64,7 +64,7 @@ public class update_category extends HttpServlet {
 			stm.executeUpdate("insert into category values(null,'"+category_name+"')");
 			//String query = "SELECT * FROM employee_data where employee_id='"+employ_id_search+"' ";
 
-			response.sendRedirect("menu_edit2.jsp");
+			response.sendRedirect("edit-menu-admin.jsp");
 			}
 			catch(Exception e)
 			{ 
@@ -85,7 +85,7 @@ public class update_category extends HttpServlet {
 				//stm.executeUpdate("insert into employee_data values(null,'"+e_id+"','"+password+"','"+ac+"')");
 				//String query = "SELECT * FROM employee_data where employee_id='"+employ_id_search+"' ";
 
-				response.sendRedirect("menu_edit2.jsp");
+				response.sendRedirect("edit-menu-admin.jsp");
 				}
 				catch(Exception e)
 				{ 

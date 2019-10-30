@@ -59,7 +59,7 @@ public class clear_cart extends HttpServlet {
 			stm.executeUpdate("delete from customer_data where table_no='"+table_number_1+"'");
 			
 				
-			response.sendRedirect("table_master.jsp");
+			response.sendRedirect("bootstrap_example.jsp");
 		
 		
 			}

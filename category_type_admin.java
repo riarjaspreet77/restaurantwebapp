@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class category_type_1
+ * Servlet implementation class category_type_admin
  */
-@WebServlet("/category_type_1")
-public class category_type_1 extends HttpServlet {
+@WebServlet("/category_type_admin")
+public class category_type_admin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public category_type_1() {
+    public category_type_admin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,10 +36,10 @@ public class category_type_1 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String category_type=request.getParameter("category_type");
-		HttpSession session=request.getSession();
-		session.setAttribute( "category_type",category_type);
-		response.sendRedirect("bootstrap-cashier.jsp");
-	}
+				String category_type=request.getParameter("category_type");
+				HttpSession session=request.getSession();
+				session.setAttribute( "category_type",category_type);
+				response.sendRedirect("admin-cashier-bootstrap.jsp");
+			}
 
-}
+		}

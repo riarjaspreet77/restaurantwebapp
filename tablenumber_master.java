@@ -39,7 +39,7 @@ public class tablenumber_master extends HttpServlet {
 		String table_number=request.getParameter("table_number");
 		HttpSession session=request.getSession();
 		session.setAttribute( "table_number",table_number);
-		response.sendRedirect("cashier_menu_master.jsp");
+		response.sendRedirect("bootstrap-cashier.jsp");
 	}
 
 }

@@ -61,7 +61,7 @@ public class update_employee2 extends HttpServlet {
 			//stm.executeUpdate("insert into employee_data values(null,'"+e_id+"','"+password+"','"+ac+"')");
 			//String query = "SELECT * FROM employee_data where employee_id='"+employ_id_search+"' ";
 
-			response.sendRedirect("employe_edit2.jsp");
+			response.sendRedirect("admin_master.jsp");
 			}
 			catch(Exception e)
 			{ 
@@ -82,7 +82,7 @@ public class update_employee2 extends HttpServlet {
 				//stm.executeUpdate("insert into employee_data values(null,'"+e_id+"','"+password+"','"+ac+"')");
 				//String query = "SELECT * FROM employee_data where employee_id='"+employ_id_search+"' ";
 
-				response.sendRedirect("employe_edit2.jsp");
+				response.sendRedirect("edit-employe-admin.jsp");
 				}
 				catch(Exception e)
 				{ 

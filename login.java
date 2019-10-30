@@ -63,12 +63,12 @@ public class login extends HttpServlet {
 			if (rs.next())
 				{   if(rs.getInt("admin_access")==0)
 						{
-							response.sendRedirect("table_master.jsp");
+							response.sendRedirect("bootstrap_example.jsp");
 					
 						}
 					else
 						{
-						response.sendRedirect("admin.jsp");
+						response.sendRedirect("admin-bootstrap.jsp");
 						}
 					
 					
@@ -79,7 +79,7 @@ public class login extends HttpServlet {
 				
 				session.setAttribute( "error_msg","username/Password invalid");
 				
-				response.sendRedirect("login_page.jsp");
+				response.sendRedirect("login_master.jsp");
 				}
 			}
 			catch(Exception e)

@@ -14,9 +14,9 @@ import javax.servlet.http.HttpSession;
 
 
 /**
- * Servlet implementation class insertmenu
+ * Servlet implementation class insert_menu
  */
-@WebServlet("/insertmenu")
+@WebServlet("/insert_menu")
 public class insert_menu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -63,7 +63,9 @@ public class insert_menu extends HttpServlet {
 			catch(Exception e)
 			{ 
 				System.out.println(e);
+	
 			}
+		response.sendRedirect("editbycat-admin.jsp");
 	}
-
+	
 }
